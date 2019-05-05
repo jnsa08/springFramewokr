@@ -4,17 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="persona" class="cl.jsaavedra.beans.Persona">
-		<property name="pais" ref="pais"></property>
+		<property name="pais">
+			<bean id="pais" class="cl.jsaavedra.beans.Pais">
+				<property name="nombre" value="Chile"></property>
+				<property name="ciudad">
+					<bean id="ciudad" class="cl.jsaavedra.beans.Ciudad">
+						<property name="nombre" value="Santiago"></property>
+					</bean>
+				</property>
+			</bean>
+		</property>
 		<property name="id" value="1"></property>
 		<property name="nombre" value="Jonathan"></property>
 		<property name="apodo" value="Jona"></property>
-	</bean>
-
-	<bean id="pais" class="cl.jsaavedra.beans.Pais">
-		<property name="nombre" value="Chile"></property>
-		<property name="ciudad" ref="ciudad"></property>
-	</bean>
-	<bean id="ciudad" class="cl.jsaavedra.beans.Ciudad">
-		<property name="nombre" value="Santiago"></property>
 	</bean>
 </beans>
