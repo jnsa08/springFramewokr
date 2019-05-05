@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cl.jsaavedra.beans.Ciudad;
 import cl.jsaavedra.beans.Persona;
 
 public class App {
@@ -13,18 +12,10 @@ public class App {
 
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("cl/jsaavedra/xml/beans.xml");
 
-		Persona per = (Persona) appContext.getBean("personaBean2"); // o (Persona) appContext.getBean(Persona.class)
-
-		String nombreCiudades = "";
-
-		for (Ciudad ciudad : per.getPais().getCiudades()) {
-
-			nombreCiudades += ciudad.getNombre() + "-";
-
-		}
+		Persona per = (Persona) appContext.getBean("persona"); // o (Persona) appContext.getBean(Persona.class)
 
 		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo() + " " + per.getPais().getNombre()
-				+ " " + nombreCiudades);
+				+ " " + per.getCiudad().getNombre());
 		
 		((ConfigurableApplicationContext) appContext).close();
 

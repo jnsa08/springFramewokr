@@ -3,34 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="persona" class="cl.jsaavedra.beans.Persona"
-		name="personaBean2">
-		<property name="pais" ref="pais"></property>
+	<bean id="persona" class="cl.jsaavedra.beans.Persona" autowire="byName">
 		<property name="id" value="1"></property>
 		<property name="nombre" value="Jonathan"></property>
 		<property name="apodo" value="Jona"></property>
 	</bean>
 
-	<alias name="persona" alias="personaBean" />
-
 	<bean id="pais" class="cl.jsaavedra.beans.Pais">
 		<property name="nombre" value="Chile"></property>
-		<property name="ciudades">
-			<list>
-				<ref bean="ciudad1" />
-				<ref bean="ciudad2" />
-				<ref bean="ciudad3" />
-			</list>
-		</property>
 	</bean>
 
-	<bean id="ciudad1" class="cl.jsaavedra.beans.Ciudad">
+	<bean id="ciudad" class="cl.jsaavedra.beans.Ciudad">
 		<property name="nombre" value="Santiago"></property>
 	</bean>
-	<bean id="ciudad2" class="cl.jsaavedra.beans.Ciudad">
-		<property name="nombre" value="Viña del mar"></property>
-	</bean>
-	<bean id="ciudad3" class="cl.jsaavedra.beans.Ciudad">
-		<property name="nombre" value="Concepción"></property>
-	</bean>
+
 </beans>
