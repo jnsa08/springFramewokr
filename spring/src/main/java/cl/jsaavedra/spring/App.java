@@ -13,7 +13,7 @@ public class App {
 		ApplicationContext  appContext = new ClassPathXmlApplicationContext("cl/jsaavedra/xml/beans.xml");
 				
 		Persona per = (Persona) appContext.getBean("persona"); // o (Persona) appContext.getBean(Persona.class)
-		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo());
+		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo() + " " + per.getPais().getNombre() + " "+ per.getPais().getCiudad().getNombre()) ;
 		
 		((ConfigurableApplicationContext)appContext).close();
 
